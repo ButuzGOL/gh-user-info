@@ -1,1 +1,24 @@
-Hello world
+<div class="jumbotron">
+  <h3>GitHub user:</h3>
+  <form
+    name="form"
+    ng-submit="search()"
+    class="ng-pristine ng-valid">
+    <div class="input-group">
+      <input type="text"
+        class="form-control ng-pristine ng-valid"
+        id="username"
+        placeholder="Github username"
+        required
+        ng-model="username">
+      <span class="input-group-btn">
+        <button
+          class="btn btn-default"
+          type="submit"
+          ng-disabled="form.$invalid">
+          Search
+        </button>
+      </span>
+    </div>
+  </form>
+</div>

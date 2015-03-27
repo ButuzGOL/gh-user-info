@@ -1,13 +1,5 @@
 'use strict';
 
-/**
- * @ngdoc overview
- * @name ghUserInfoApp
- * @description
- * # ghUserInfoApp
- *
- * Main module of the application.
- */
 angular
   .module('ghUserInfoApp', [
     'ngMessages',
@@ -19,6 +11,10 @@ angular
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
+      })
+      .when('/search/:username', {
+        templateUrl: 'views/result.html',
+        controller: 'ResultCtrl'
       })
       .otherwise({
         redirectTo: '/'

@@ -1,0 +1,56 @@
+  <div ng-hide="user.data">
+    <p style="text-align:center">
+      <img src="images/loader.gif">
+    </p>
+  </div>
+
+  <div class="row" ng-show="user.data.message">
+    <a href="/#">Search Other</a>
+
+    <p style="text-align:center">{{user.data.message}}</p>
+
+  </div>
+
+  <div ng-show="user.data.login">
+
+    <div>
+      <div class="login">
+        <div>
+          <img
+            width="230"
+            height="230"
+            ng-src="{{user.data.avatar_url}}"
+            alt="{{user.data.login}}'s avatar" />
+        </div>
+        <div>
+          <h2>{{user.data.login}}</h2>
+          <h2 ng-show="user.data.name">
+            <small>{{user.data.name}}</small>
+          </h2>
+        </div>
+      </div>
+      <div>
+        <dl>
+          <dt>Public repos</dt>
+          <dd>{{user.data.public_repos}}</dd>
+          <dt>Followers</dt>
+          <dd>{{user.data.followers}}</dd>
+        </dl>
+      </div>
+    </div>
+
+    <h2>Public repos({{repos.data.length}})</h2>
+    <div ng-show="repos.data.length">
+
+      <ul class="list-group" ng-repeat="repo in repos.data | orderBy:'-watchers'">
+        <li class="list-group-item">
+          <h4><a href="https://github.com/{{repo.full_name}}/">{{repo.name}}</a></h4>
+          <small ng-show="repo.description">{{repo.description}}</small>
+        </li>
+      </ul>
+
+
+    </div>
+
+  </div>
+</div>
